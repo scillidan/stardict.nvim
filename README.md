@@ -17,7 +17,7 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim):
 
 ```lua
 {
-  "your-name/stardict.nvim",
+  "scillidan/stardict.nvim",
   config = function()
     require("stardict").setup({
       dict_dirs = { "~/.stardict/dic", "/usr/share/stardict/dic" },
