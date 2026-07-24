@@ -36,19 +36,18 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim):
 ## Usage
 
 ```lua
-vim.keymap.set("n", "<Leader>d", function()
+vim.keymap.set("n", "<leader>sd", function()
   require("stardict").lookup()
-end, { desc = "stardict lookup" })
+end, { desc = "Stardict lookup" })
 ```
 
-Press `<Leader>d` on a word to open the float.
+Press `<leader>sd` on a word to open the float.
 
 ### Modes
 
 **Combined** (exact match, `display_mode = "combined"`): single Markdown float.
 - `q` / `<Esc>` — close.
 - `<Enter>` — replace the original word with the word under the cursor.
-- `<Leader>d` — look up the word under the cursor.
 
 **Split** (default, exact match in multiple dicts): left list, right definition.
 - `<Tab>` / `<S-Tab>` — cycle dictionaries.

@@ -137,18 +137,6 @@ local function replace_word()
 	end
 end
 
---- Look up a word from the suggestion/definition window.
-local function lookup_under_cursor()
-	local word = get_cword()
-	if not word then
-		return
-	end
-	local ow, owrd = _origin_win, _origin_word
-	M.lookup(word)
-	_origin_win = ow
-	_origin_word = owrd
-end
-
 local function ensure_combined_buffer()
 	if _combined_buf and vim.api.nvim_buf_is_valid(_combined_buf) then
 		return _combined_buf
@@ -162,7 +150,6 @@ local function ensure_combined_buffer()
 	vim.keymap.set("n", "q", M.close, { silent = true, buffer = _combined_buf })
 	vim.keymap.set("n", "<Esc>", M.close, { silent = true, buffer = _combined_buf })
 	vim.keymap.set("n", "<Enter>", replace_word, { silent = true, buffer = _combined_buf })
-	vim.keymap.set("n", "<Leader>d", lookup_under_cursor, { silent = true, buffer = _combined_buf })
 	return _combined_buf
 end
 
@@ -400,7 +387,6 @@ local function open_split_view(entries, word)
 	vim.keymap.set("n", "q", M.close, { silent = true, buffer = def_buf })
 	vim.keymap.set("n", "<Esc>", M.close, { silent = true, buffer = def_buf })
 	vim.keymap.set("n", "<Enter>", replace_word, { silent = true, buffer = def_buf })
-	vim.keymap.set("n", "<Leader>d", lookup_under_cursor, { silent = true, buffer = def_buf })
 	vim.keymap.set("n", "<Tab>", function()
 		cycle_split(1)
 	end, { silent = true, buffer = def_buf })
@@ -651,7 +637,6 @@ local function open_suggestion_split_view(suggestions, word)
 	end, { silent = true, buffer = list_buf })
 	vim.keymap.set("n", "<Enter>", select_suggestion_and_replace, { silent = true, buffer = list_buf })
 	vim.keymap.set("n", "<2-LeftMouse>", select_suggestion_and_replace, { silent = true, buffer = list_buf })
-	vim.keymap.set("n", "<Leader>d", lookup_under_cursor, { silent = true, buffer = list_buf })
 
 	-- Scroll the right definition pane without leaving the suggestion list.
 	vim.keymap.set("n", "<C-e>", function()
@@ -676,7 +661,6 @@ local function open_suggestion_split_view(suggestions, word)
 	-- Definition window keymaps
 	vim.keymap.set("n", "q", M.close, { silent = true, buffer = def_buf })
 	vim.keymap.set("n", "<Esc>", M.close, { silent = true, buffer = def_buf })
-	vim.keymap.set("n", "<Leader>d", lookup_under_cursor, { silent = true, buffer = def_buf })
 
 	-- Update preview when the cursor moves in the suggestion list (mouse click, j/k, etc.).
 	vim.api.nvim_create_autocmd("CursorMoved", {
