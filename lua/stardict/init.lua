@@ -803,9 +803,6 @@ function M.setup(config)
 	for _, d in ipairs(_dicts) do
 		dict.load_async(d, function()
 			remaining = remaining - 1
-			if remaining == 0 then
-				notify("Loaded " .. #_dicts .. " dictionary(s).")
-			end
 		end)
 	end
 end
