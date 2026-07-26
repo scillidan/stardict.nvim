@@ -20,7 +20,7 @@ local M = {}
 
 ---@type StardictUserOpts
 M.opts = {
-	dict_dirs = { "~/.stardict/dic", "/usr/share/stardict/dic" },
+	dict_dirs = nil,
 	include_dictionaries = nil,
 	exclude_dictionaries = nil,
 	dictionary_order = nil,
@@ -786,7 +786,7 @@ function M.setup(config)
 		M.opts = vim.tbl_deep_extend("force", M.opts, config)
 	end
 
-	local dirs = M.opts.dict_dirs or { "~/.stardict/dic", "/usr/share/stardict/dic" }
+	local dirs = M.opts.dict_dirs or {}
 	_dicts = dict.discover(dirs, {
 		include = M.opts.include_dictionaries,
 		exclude = M.opts.exclude_dictionaries,

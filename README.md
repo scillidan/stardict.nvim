@@ -20,8 +20,11 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim):
   "scillidan/stardict.nvim",
   config = function()
     require("stardict").setup({
-      dict_dirs = { "~/.stardict/dic", "/usr/share/stardict/dic" },
-      display_mode = "split",
+      -- Required. StarDict .ifo/.idx/.dict files:
+      --   Linux: ~/.stardict/dic, /usr/share/stardict/dic
+      --   Windows: custom path with your dictionaries
+      dict_dirs = { "~/.stardict/dic" },
+      display_mode = "split", -- Or "combined"
       max_items = 100,
       ansi_colors = true,
       window = { width = 120, list_width = 30 },
