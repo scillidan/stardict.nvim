@@ -20,17 +20,18 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim):
   "scillidan/stardict.nvim",
   config = function()
     require("stardict").setup({
-      -- Required. StarDict .ifo/.idx/.dict files:
+    	-- Default options
+    	-- Multiple paths supported. Set it for your platform/install method:
       --   Linux: ~/.stardict/dic, /usr/share/stardict/dic
       --   Windows: custom path with your dictionaries
-      dict_dirs = { "~/.stardict/dic" },
+      dict_dirs = {}, -- Required
+      include_dictionaries = {}, -- e.g. "CC-CEDICT", "WordNet"
+      exclude_dictionaries = {}, -- e.g. "GCIDE"
+      dictionary_order = {}, -- e.g. "WordNet", "CC-CEDICT"
       display_mode = "split", -- Or "combined"
-      max_items = 100,
       ansi_colors = true,
+      max_items = 100,
       window = { width = 120, list_width = 30 },
-      -- include_dictionaries = {},
-      -- exclude_dictionaries = {},
-      -- dictionary_order = {},
     })
   end,
 }
