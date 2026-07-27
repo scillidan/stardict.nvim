@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/stardict-nvim.png" alt="stardict.nvim" width="800" />
+  <img src="assets/stardict-nvim.png" alt="stardict.nvim" width="600" />
 </div>
 
 # stardict.nvim
