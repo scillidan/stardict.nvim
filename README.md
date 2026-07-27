@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="assets/stardict-nvim.png" alt="stardict.nvim" width="800" />
+</div>
+
 # stardict.nvim
 
 Local [StarDict](https://github.com/huzheng001/stardict-3) dictionaries lookup in Neovim.
@@ -10,6 +14,8 @@ This plugin is a Windows-friendly alternative to [dict.nvim](https://github.com/
 
 - Neovim 0.10+
 - StarDict dictionaries (`.ifo` + `.idx` + `.dict`)
+
+I'm using the `sdcv` version dictionaries that renders HTML using ANSI escape sequences. Find them [here](https://github.com/scillidan?tab=repositories&q=share_).
 
 ## Installation
 
@@ -81,6 +87,6 @@ Press `<leader>sd` on a word to open the float.
 | `window.height` | `integer?` | Auto-sized if unset. |
 | `window.list_width` | `integer` | Left list width in split/suggestion modes. |
 
-## Related projects
+## See also
 
 - [Dict.nvim](https://github.com/jalvesaq/dict.nvim)
